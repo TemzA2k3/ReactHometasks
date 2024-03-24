@@ -1,4 +1,4 @@
-import TestComponent from "./Components/TestComponent";
+import ListRender from "./Components/ListRender";
 
 import './App.css';
 
@@ -10,7 +10,7 @@ function App() {
   ]
   return (
     <div className="App">
-      <TestComponent shops={shops}/>
+      <ListRender shops={shops}/>
     </div>
   );
 }
