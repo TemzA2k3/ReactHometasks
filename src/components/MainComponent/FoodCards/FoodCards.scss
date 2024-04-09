@@ -1,0 +1,101 @@
+.card{
+  border-radius: 6px;
+  border: 1px solid rgba(53, 184, 190, 0.15);
+  background: #FFF;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 26px;
+  gap: 30px;
+  width: 40%;
+  margin-bottom: 20px;
+  &__image{
+    width: 120px;
+    height: 120px;
+    flex-shrink: 0;
+    &__description {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 6px;
+
+      &__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+
+        &__name {
+          color: #08090A;
+          font-size: 18px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px; /* 111.111% */
+          letter-spacing: 0.6px;
+        }
+
+        &__price {
+          color: #35B8BE;
+          font-size: 15px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
+        }
+      }
+
+      &__compound {
+        color: #546285;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0.32px;
+      }
+
+      &__footer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 20px;
+        &__price {
+          &__input {
+            border-radius: 6px;
+            border: 1px solid #DDD;
+            background: #FAFAFA;
+            width: 60px;
+            height: 45px;
+            color: #000;
+            text-align: center;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 27px; /* 168.75% */
+            letter-spacing: 0.36px;
+          }
+        }
+
+        &__btn {
+          border-radius: 6px;
+          background: #35B8BE;
+          flex-shrink: 0;
+          padding: 9px 27px;
+          &:hover {
+            cursor: pointer;
+            background-color: #1b959a
+          }
+          &__text {
+            color: #FFF;
+            text-align: center;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 27px;
+            letter-spacing: 0.36px;
+          }
+        }
+      }
+    }
+  }
+}

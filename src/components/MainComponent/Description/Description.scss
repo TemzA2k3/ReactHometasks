@@ -1,0 +1,176 @@
+.main{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+  background-image: url("../../../assets/images/background.svg");
+  background-size: cover;
+  background-position: right top;
+  &__content{
+    display: flex;
+    padding: 140px 120px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    &__header{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      width: 55%;
+      &__name{
+        color: #35B8BE;
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 50px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 55px;
+        letter-spacing: 1.65px;
+      }
+      &__description{
+        position: relative;
+        color: #546285;
+        text-align: center;
+        font-family: sans-serif;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 27px; /* 168.75% */
+        letter-spacing: 0.36px;
+        &__phone{
+          color: #35B8BE;
+          font-family: sans-serif;
+          font-size: 16px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 27px;
+          letter-spacing: 0.36px;
+          &:hover{
+            cursor: pointer;
+            color: #089198;
+          }
+        }
+      }
+    }
+    &__container{
+      display: flex;
+      width: 100%;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      &__buttons{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+        &__elem{
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 132px;
+          height: 52px;
+          flex-shrink: 0;
+          border-radius: 6px;
+          border: 1px solid rgba(97, 114, 131, 0.20);
+          background-color: #F5FBFC;
+          &:hover{
+            cursor: pointer;
+            background-color: #d6dfe0
+          }
+          &__active{
+            background-color: #35B8BE;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 132px;
+            height: 52px;
+            flex-shrink: 0;
+            border-radius: 6px;
+            border: 1px solid rgba(97, 114, 131, 0.20);
+            .main__content__container__buttons__elem__text{
+              color: #FFF;
+              font-size: 16px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 20px;
+            }
+            &:hover{
+              cursor: pointer;
+              background-color: #1b959a;
+            }
+          }
+          &__text{
+            color: #222;
+            font-size: 16px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 20px;
+          }
+        }
+      }
+      &__items{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      &__seemore{
+        background-color: #35B8BE;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 132px;
+        height: 52px;
+        flex-shrink: 0;
+        border-radius: 6px;
+        border: 1px solid rgba(97, 114, 131, 0.2);
+        &__text{
+          color: #FFF;
+          text-align: center;
+          font-size: 17px;
+          font-style: normal;
+          font-weight: 400;
+          line-height: 20px;
+        }
+        &:hover {
+            cursor: pointer;
+            background-color: #1b959a
+          }
+      }
+    }
+  }
+}
+
+.hint{
+  position: absolute;
+  background-color: white;
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  padding: 10px 20px;
+  border-radius: 6px;
+  border: 1px solid rgba(97, 114, 131, 0.2);
+  bottom: 50px;
+  right: 182px;
+  &__text{
+    text-align: center;
+    color: #222;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+  }
+}
+
+.hidden{
+  display: none !important;
+}

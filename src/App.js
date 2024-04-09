@@ -1,16 +1,15 @@
-import ListRender from "./Components/ListRender";
-
+import "./components/HeaderComponent/Header"
 import './App.css';
+import Header from "./components/HeaderComponent/Header";
+import Description from "./components/MainComponent/Description/Description";
+import Footer from "./components/FooterComponent/Footer";
 
 function App() {
-  const shops = [
-    "Maxima",
-    "Rimi",
-    "Iki"
-  ]
   return (
     <div className="App">
-      <ListRender shops={shops}/>
+        <Header/>
+        <Description/>
+        <Footer/>
     </div>
   );
 }
