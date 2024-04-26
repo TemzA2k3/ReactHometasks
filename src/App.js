@@ -1,33 +1,26 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import HeaderComponent from "./components/HeaderComponent/Header";
 import Description from "./components/MainComponent/Description/Description";
 import Footer from "./components/FooterComponent/Footer";
+import {ContextProvider} from "./Context/CreateContext";
 
-class App extends Component {
+const App = () => {
+    const [inputValue, setInputValue] = useState({});
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            inputValue: "",
-            inputId: ""
-        }
-    }
+    const handleDataChange = (inputValue) => {
+        setInputValue(inputValue);
+    };
 
-  handleDataChange = (inputValue, inputId) => {
-    this.setState({ inputValue, inputId});
-  };
-
-
-  render() {
     return (
-      <div className="App">
-          <HeaderComponent mealsCount={this.state}/>
-          <Description onButtonClick={this.handleDataChange}/>
-          <Footer />
-      </div>
+        <div className="App">
+             <ContextProvider onClick={handleDataChange}>
+                <HeaderComponent mealsCount={inputValue}/>
+                <Description onButtonClick={handleDataChange}/>
+             </ContextProvider>
+            <Footer/>
+        </div>
     );
-  }
 }
 
 export default App;

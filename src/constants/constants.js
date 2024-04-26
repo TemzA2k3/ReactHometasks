@@ -9,7 +9,7 @@ import twitter from "../assets/images/twitter.png"
 import youTube from "../assets/images/youTube.png"
 
 
-const buttonsName = ["Desert", "Dinner", "Breakfast"]
+const buttonsName = ["Dessert", "Dinner", "Breakfast"]
 
 // такой формат объекта похож на тот который приходит с апи, поэтому сделал так
 const foodData= {
