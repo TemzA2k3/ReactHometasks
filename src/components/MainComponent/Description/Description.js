@@ -4,7 +4,8 @@ import "../../../api/api";
 import { buttonsName } from "../../../constants/constants";
 import Nutrition from "../Nutrition/Nutrition";
 import FoodCard from "../FoodCards/FoodCard";
-import { getData } from "../../../api/api";
+// import { getData } from "../../../api/api";
+import {useFetch} from "../../../hooks/http.hook";
 
 const Description = () => {
     const [meals, setMeals] = useState([]);
@@ -12,10 +13,11 @@ const Description = () => {
     const [isShow, setIsShow] = useState(true);
     const [buttonName, setButtonName] = useState("Dessert")
     const [isLoading, setIsLoading] = useState(false)
+    const {request} = useFetch()
 
     useEffect(() => {
         setIsLoading(true)
-        getData().then(data => {
+        request("https://65de35f3dccfcd562f5691bb.mockapi.io/api/v1/meals").then(data => {
             let filteredData = data.filter(item => {
                 return item.category === buttonName
             })
