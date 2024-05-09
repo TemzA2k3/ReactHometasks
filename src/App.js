@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import './App.css';
+import { Routes, Route } from "react-router-dom";
 import HeaderComponent from "./components/HeaderComponent/Header";
 import Description from "./components/MainComponent/Description/Description";
 import Footer from "./components/FooterComponent/Footer";
+import LoginPage from "./components/MainComponent/LoginPage/LoginPage";
 import {ContextProvider} from "./Context/CreateContext";
 
 const App = () => {
@@ -15,10 +17,14 @@ const App = () => {
     return (
         <div className="App">
              <ContextProvider onClick={handleDataChange}>
-                <HeaderComponent mealsCount={inputValue}/>
-                <Description onButtonClick={handleDataChange}/>
+                 <HeaderComponent mealsCount={inputValue}/>
+                 <Routes>
+                     <Route path="/register" element={<LoginPage type="Register" label="Register"/>}/>
+                     <Route path="/login" element={<LoginPage type="Login" label="Log In"/>}/>
+                     <Route path="/menu" element={<Description onButtonClick={handleDataChange}/>}/>
+                 </Routes>
+                 <Footer/>
              </ContextProvider>
-            <Footer/>
         </div>
     );
 }

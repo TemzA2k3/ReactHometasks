@@ -8,6 +8,7 @@ import { btnName } from "../../constants/constants";
 const Header = ({ mealsCount }) => {
     const [data, setData] = useState([]);
     const [resultCount, setResultCount] = useState(0)
+    const [active, setActive] = useState('Home')
 
     useEffect(() => {
         if (Object.keys(mealsCount).length) {
@@ -35,6 +36,10 @@ const Header = ({ mealsCount }) => {
         });
     };
 
+    const handleClick = (name) => {
+        setActive(name)
+    }
+
 
     return (
         <header className="food_header">
@@ -44,8 +49,12 @@ const Header = ({ mealsCount }) => {
                 </div>
                 <div className="food_header__data__block">
                     <div className="food_header__data__block__settings">
-                        {btnName.map((item, index) => (
-                            <HeaderButton key={index} btnName={item} activeClass={index === 0} />
+                        {Object.keys(btnName).map((item, index) => (
+                            <HeaderButton key={index}
+                                          btnName={item}
+                                          click={handleClick}
+                                          link={btnName[item]}
+                                          isActive={item === active}/>
                         ))}
                     </div>
                     <Basket currentAmount={resultCount} />

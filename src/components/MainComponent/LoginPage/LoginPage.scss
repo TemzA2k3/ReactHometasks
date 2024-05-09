@@ -1,0 +1,103 @@
+section{
+  h1, h2{
+    all: unset;
+  }
+}
+
+.login{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: calc(100% - 504px);
+  background-image: url("../../../assets/images/background.svg");
+  background-size: cover;
+  background-position: right top;
+  padding: 155px 252px 254px;
+  &-content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 53px;
+    &__label{
+      color: #35B8BE;
+      text-align: center;
+      font-family: sans-serif;
+      font-size: 50px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 55px;
+      letter-spacing: 1.65px;
+    }
+  }
+  &__block{
+    width: 695px;
+    flex-shrink: 0;
+    border-radius: 6px;
+    border: 1px solid rgba(53, 184, 190, 0.15);
+    background: #FFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 37px 68px 42px;
+    gap: 32px;
+    &-name, &-password{
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 30px;
+      width: 100%;
+    }
+    &-text{
+      color: #08090A;
+      font-family: sans-serif;
+      font-size: 18px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0.6px;
+      min-width: 95px;
+    }
+    &-input{
+      border-radius: 6px;
+      border: 1px solid #DDD;
+      background: #FAFAFA;
+      width: 100%;
+      height: 45px;
+      color: #000;
+      text-align: start;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 27px;
+      letter-spacing: 0.36px;
+      font-family: sans-serif;
+      padding: 0 20px 0 20px;
+      &--error{
+        border: 1px solid red;
+      }
+    }
+  }
+  &__buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+  }
+  &__register{
+    color: #222;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    &--active{
+      cursor: pointer;
+      color: #0078ff;
+    }
+  }
+}
+
+.error-message{
+  color: red;
+}
