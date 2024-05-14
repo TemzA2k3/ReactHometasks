@@ -1,20 +1,16 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Nutrition extends Component {
-    render() {
-        const { text, isActive } = this.props;
-        const activeClass = isActive ? "__active" : "";
+const Nutrition = ({ text, isActive, onClick }) => {
 
-        return (
-            <>
-                <button className={`main__content__container__buttons__elem${activeClass}`}>
-                    <div className="main__content__container__buttons__elem__text">
-                        {text}
-                    </div>
-                </button>
-            </>
-        );
-    }
+    const activeClass = isActive === text ? "__active" : "";
+
+    return (
+        <button onClick={onClick} className={`main__content__container__buttons__elem${activeClass}`}>
+            <div className="main__content__container__buttons__elem__text">
+                {text}
+            </div>
+        </button>
+    );
 }
 
 export default Nutrition;
