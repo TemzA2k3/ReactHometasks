@@ -1,5 +1,5 @@
 export const useFetch = () => {
-    const request = async (url, method = 'GET', body = null, headers = {'Content-Type': 'application/json'}) => {
+    const request = async (url: string, method = 'GET', body = null, headers = {'Content-Type': 'application/json'}) => {
 
         try {
             const response = await fetch(url, {method, body, headers});
@@ -9,9 +9,10 @@ export const useFetch = () => {
             }
 
             const info = response
-            const data = info.json();
+            const data = await info.json();
 
-            const getApiInfo = JSON.parse(localStorage.getItem('ResponseInfo'))
+            const storedApiInfo: string | null = localStorage.getItem('ResponseInfo');
+            const getApiInfo = storedApiInfo ? JSON.parse(storedApiInfo) : [];
             let newInfo = []
 
             const currentResponseInfo = {

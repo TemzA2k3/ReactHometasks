@@ -1,6 +1,7 @@
-import React from 'react';
+import {FC} from 'react';
+import { INutritionTypes } from "./nutritionTypes";
 
-const Nutrition = ({ text, isActive, onClick }) => {
+const Nutrition:FC<INutritionTypes> = ({ text, isActive, onClick }) => {
 
     const activeClass = isActive === text ? "__active" : "";
 

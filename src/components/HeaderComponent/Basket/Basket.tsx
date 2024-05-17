@@ -1,7 +1,8 @@
-import React from "react";
+import React, {FC} from "react";
 import purchases from "../../../assets/images/purchases.svg";
+import {IBasketTypes} from "./basketTypes";
 
-const Basket = ({ currentAmount }) => {
+const Basket: FC<IBasketTypes> = ({ currentAmount }) => {
     return (
         <div className="food_header__data__block__settings__img">
             <img src={purchases} alt="purchases" />

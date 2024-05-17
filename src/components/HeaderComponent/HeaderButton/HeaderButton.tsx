@@ -1,7 +1,8 @@
-import React from 'react';
+import {FC} from 'react';
+import { IHeaderButtonTypes } from "./headerButtonTypes"
 
-const HeaderButton = ({ btnName, activeClass }) => {
-    const active = activeClass ? "__active" : "";
+const HeaderButton: FC<IHeaderButtonTypes> = ({ btnName, activeClass }) => {
+    const active: string = activeClass ? "__active" : "";
 
     return (
         <button className="food_header__data__block__settings__item">

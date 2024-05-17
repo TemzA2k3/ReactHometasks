@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import {useState, useEffect, FC} from 'react';
 import "../HeaderComponent/Header.scss";
 import preview from "../../assets/images/preview.svg";
 import Basket from "./Basket/Basket";
 import HeaderButton from "./HeaderButton/HeaderButton";
+import { IHeaderTypes, MealsCountParams } from "./headerTypes"
 import { btnName } from "../../constants/constants";
 
-const Header = ({ mealsCount }) => {
-    const [data, setData] = useState([]);
+
+const Header: FC<IHeaderTypes> = ({ mealsCount }) => {
+    const [data, setData] = useState<Array<any>>([]);
     const [resultCount, setResultCount] = useState(0)
 
     useEffect(() => {
@@ -23,14 +25,13 @@ const Header = ({ mealsCount }) => {
         setResultCount(sum)
     }, [data])
 
-    const createMealsData = (newItem) => {
-        setData(prevData => {
+    const createMealsData = (newItem: MealsCountParams) => {
+        setData((prevData) => {
             const isNewItem = prevData.find(item => item.inputId === newItem.inputId);
             if (!isNewItem) {
                 return [...prevData, newItem];
             } else {
-                const updatedData = prevData.map(item => (item.inputId === newItem.inputId ? newItem : item));
-                return updatedData;
+                return prevData.map(item => (item.inputId === newItem.inputId ? newItem : item));
             }
         });
     };

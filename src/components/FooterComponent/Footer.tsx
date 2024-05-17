@@ -1,11 +1,11 @@
-import React from 'react';
+import {FC} from 'react';
 import "./Footer.scss";
 import logo from "../../assets/images/preview.svg";
 import { linksObj, text, icons } from "../../constants/constants";
 import FooterLinks from "./FooterLinks/FooterLinks";
 import FooterImages from "./FooterImages/FooterImages";
 
-const Footer = () => {
+const Footer: FC = () => {
     return (
         <footer className="footer">
             <div className="footer__data">
@@ -19,8 +19,8 @@ const Footer = () => {
                         </h4>
                     </div>
                     <div className="footer__data__content__links">
-                        {Object.values(linksObj).map((item, index) => (
-                            <FooterLinks key={index} data={item} />
+                        {linksObj.map((item, index) => (
+                            <FooterLinks key={index} name={item.name} values={item.values}/>
                         ))}
                     </div>
                 </div>
@@ -32,8 +32,11 @@ const Footer = () => {
                             <span className="footer__data__lable__content__text__links"> Webflow</span>
                         </h4>
                         <div className="footer__data__lable__content__images">
-                            {Object.values(icons).map((item, index) => (
-                                <FooterImages key={index} settings={item} />
+                            {icons.map((item, index) => (
+                                <FooterImages key={index}
+                                              icon={item.icon}
+                                              width={item.width}
+                                              height={item.height}/>
                             ))}
                         </div>
                     </div>
