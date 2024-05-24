@@ -85,6 +85,11 @@ const icons = {
         "height": "13px",
     }
 }
-const btnName = ["Home", "Menu", "Company", "Login"]
+const btnName =  {
+    "Home": "/",
+    "Menu": "/menu",
+    "Company": "",
+    "Login": "/login",
+}
 
 export {buttonsName, foodData, btnName, linksObj, text, icons}

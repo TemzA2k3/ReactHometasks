@@ -1,11 +1,13 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 
-const HeaderButton = ({ btnName, activeClass }) => {
-    const active = activeClass ? "__active" : "";
-
+const HeaderButton = ({ btnName, click, isActive, link }) => {
+    const active = isActive  ? "__active" : "";
     return (
         <button className="food_header__data__block__settings__item">
-            <div className={`food_header__data__block__settings__item__text${active}`}>{btnName}</div>
+            <Link to={link}
+                  onClick={() => click(btnName)}
+                  className={`food_header__data__block__settings__item__text${active}`}>{btnName}</Link>
         </button>
     );
 }
