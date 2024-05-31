@@ -1,24 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, {useState, useEffect, FC} from 'react';
 import "./Description.scss";
-import "../../../api/api";
 import { buttonsName } from "../../../constants/constants";
 import Nutrition from "../Nutrition/Nutrition";
 import FoodCard from "../FoodCards/FoodCard";
-// import { getData } from "../../../api/api";
 import {useFetch} from "../../../hooks/http.hook";
+import {IContextTypes, IDescriptionTypes} from "../../index";
 
-const Description = () => {
-    const [meals, setMeals] = useState([]);
-    const [mealsForShow, setMealsForShow] = useState([]);
-    const [isShow, setIsShow] = useState(true);
-    const [buttonName, setButtonName] = useState("Dessert")
-    const [isLoading, setIsLoading] = useState(false)
+const Description: FC<IContextTypes> = () => {
+    const [meals, setMeals] = useState<Array<IDescriptionTypes>>([]);
+    const [mealsForShow, setMealsForShow] = useState<Array<IDescriptionTypes>>([]);
+    const [isShow, setIsShow] = useState<boolean>(true);
+    const [buttonName, setButtonName] = useState<string>("Dessert")
+    const [isLoading, setIsLoading] = useState<boolean>(false)
     const {request} = useFetch()
 
     useEffect(() => {
         setIsLoading(true)
         request("https://65de35f3dccfcd562f5691bb.mockapi.io/api/v1/meals").then(data => {
-            let filteredData = data.filter(item => {
+            let filteredData = data.filter((item: IDescriptionTypes) => {
                 return item.category === buttonName
             })
             setIsShow(true)
@@ -29,11 +28,11 @@ const Description = () => {
     }, [buttonName]);
 
     const handlePagination = () => {
-        const isMoreThanSix = meals.length - mealsForShow.length >= 6;
-        const offset = meals.length - mealsForShow.length;
+        const isMoreThanSix: boolean = meals.length - mealsForShow.length >= 6;
+        const offset: number = meals.length - mealsForShow.length;
         if (offset >= 1) {
-            const mealsForShowLength = mealsForShow.length;
-            let newMealsForShow;
+            const mealsForShowLength: number = mealsForShow.length;
+            let newMealsForShow: IDescriptionTypes[];
             if (isMoreThanSix) {
                 newMealsForShow = mealsForShow.concat(meals.slice(mealsForShowLength, mealsForShowLength + 6));
             } else {
@@ -47,7 +46,7 @@ const Description = () => {
     };
 
 
-    const btnHideClass = isShow ? "" : "hidden";
+    const btnHideClass: string = isShow ? "" : "hidden";
 
     return (
         <main className="main">

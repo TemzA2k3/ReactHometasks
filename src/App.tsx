@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './App.css';
+import { MealsCountParams } from "./components";
 import { Routes, Route } from "react-router-dom";
 import HeaderComponent from "./components/HeaderComponent/Header";
 import Description from "./components/MainComponent/Description/Description";
@@ -9,9 +10,10 @@ import WelcomeBlock from "./components/MainComponent/WelcomeBlock/WelcomeBlock";
 import {ContextProvider} from "./Context/CreateContext";
 
 const App = () => {
-    const [inputValue, setInputValue] = useState({});
+    const [inputValue, setInputValue] = useState<MealsCountParams>({ inputId: '', inputValue: ''});
 
-    const handleDataChange = (inputValue) => {
+
+    const handleDataChange = (inputValue: MealsCountParams) => {
         setInputValue(inputValue);
     };
 

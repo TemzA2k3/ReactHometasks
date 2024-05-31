@@ -1,8 +1,11 @@
+import {FC} from 'react';
+import { IHeaderButtonTypes } from "./headerButtonTypes"
 import React from 'react';
 import { Link } from "react-router-dom";
 
-const HeaderButton = ({ btnName, click, isActive, link }) => {
+const HeaderButton: FC<IHeaderButtonTypes> = ({ btnName, click, isActive, link }) => {
     const active = isActive  ? "__active" : "";
+
     return (
         <button className="food_header__data__block__settings__item">
             <Link to={link}

@@ -1,19 +1,20 @@
-import React, { useState, useContext } from 'react';
+import React, {useState, useContext, FC, ChangeEvent} from 'react';
 import "./FoodCards.scss";
 import {Context} from "../../../Context/CreateContext";
+import { IFoodCardsTypes } from "./foodCardsTypes"
 
-const FoodCard = ({ id, url, description, name, price }) => {
+const FoodCard: FC<IFoodCardsTypes> = ({ id, url, description, name, price }) => {
     const [inputValue, setInputValue] = useState("0");
     const [inputId, setInputId] = useState("");
     const context = useContext(Context)
 
-    const handleChange = (event) => {
+    const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const inputValue = event.target.value;
         setInputValue(inputValue);
         setInputId(id);
     };
 
-    const handleKeyPress = (event) => {
+    const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
         const keyCode = event.keyCode || event.which;
         const keyValue = String.fromCharCode(keyCode);
         if (!/\d/.test(keyValue)) {
@@ -22,7 +23,7 @@ const FoodCard = ({ id, url, description, name, price }) => {
     };
 
     const handleClick = () => {
-        context.onClick({inputValue, inputId});
+        context!.onClick({inputValue, inputId});
     };
 
     return (
