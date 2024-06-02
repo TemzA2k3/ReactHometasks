@@ -41,6 +41,16 @@ const icons: IFooterImagesTypes[] = [
         "height": "13px",
     }
 ]
-const btnName: string[] = ["Home", "Menu", "Company", "Login"]
 
-export {buttonsName, btnName, linksObj, text, icons}
+export type BtnNameKeys = "Home" | "Menu" | "Company" | "Login";
+
+export const btnName: Record<BtnNameKeys, string> = {
+    "Home": "/",
+    "Menu": "/menu",
+    "Company": "",
+    "Login": "/login",
+};
+
+
+
+export {buttonsName, linksObj, text, icons}

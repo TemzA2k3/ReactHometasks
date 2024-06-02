@@ -1,6 +1,8 @@
 interface IHeaderButtonTypes{
     btnName: string,
-    activeClass: boolean,
+    isActive: boolean,
+    link: string,
+    click: (btnName: string) => void;
 }
 
 export type { IHeaderButtonTypes }

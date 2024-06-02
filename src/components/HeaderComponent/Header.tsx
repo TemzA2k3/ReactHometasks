@@ -4,7 +4,7 @@ import preview from "../../assets/images/preview.svg";
 import Basket from "./Basket/Basket";
 import HeaderButton from "./HeaderButton/HeaderButton";
 import { IHeaderTypes, MealsCountParams } from "./headerTypes"
-import { btnName } from "../../constants/constants";
+import { btnName, BtnNameKeys } from "../../constants/constants";
 
 
 const Header: FC<IHeaderTypes> = ({ mealsCount }) => {
@@ -37,7 +37,7 @@ const Header: FC<IHeaderTypes> = ({ mealsCount }) => {
         });
     };
 
-    const handleClick = (name) => {
+    const handleClick = (name: string) => {
         setActive(name)
     }
 
@@ -50,13 +50,18 @@ const Header: FC<IHeaderTypes> = ({ mealsCount }) => {
                 </div>
                 <div className="food_header__data__block">
                     <div className="food_header__data__block__settings">
-                        {Object.keys(btnName).map((item, index) => (
-                            <HeaderButton key={index}
-                                          btnName={item}
-                                          click={handleClick}
-                                          link={btnName[item]}
-                                          isActive={item === active}/>
-                        ))}
+                        {Object.keys(btnName).map((item, index) => {
+                            const key = item as BtnNameKeys;
+                            return (
+                                <HeaderButton
+                                    key={index}
+                                    btnName={key}
+                                    click={() => handleClick(key)}
+                                    link={btnName[key]}
+                                    isActive={key === active}
+                                />
+                            );
+                        })}
                     </div>
                     <Basket currentAmount={resultCount} />
                 </div>

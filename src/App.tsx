@@ -22,9 +22,10 @@ const App = () => {
              <ContextProvider onClick={handleDataChange}>
                  <HeaderComponent mealsCount={inputValue}/>
                  <Routes>
+                     <Route path="/" element={<WelcomeBlock/>}/>
                      <Route path="/register" element={<LoginPage type="Register" label="Register"/>}/>
                      <Route path="/login" element={<LoginPage type="Login" label="Log In"/>}/>
-                     <Route path="/menu" element={<Description onButtonClick={handleDataChange}/>}/>
+                     <Route path="/menu" element={<Description onClick={handleDataChange}/>}/>
                  </Routes>
                  <Footer/>
              </ContextProvider>
