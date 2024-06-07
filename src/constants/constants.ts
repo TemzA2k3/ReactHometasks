@@ -1,11 +1,10 @@
+import { IFooterLinksTypes, IFooterImagesTypes } from "../components";
+
 import instagram from "../assets/images/instagram.png"
 import twitter from "../assets/images/twitter.png"
 import youTube from "../assets/images/youTube.png"
 
-import { IFooterLinksTypes, IFooterImagesTypes } from "../components";
-
 const buttonsName: string[] = ["Dessert", "Dinner", "Breakfast"]
-
 
 const linksObj: IFooterLinksTypes[] = [
     {
@@ -52,5 +51,4 @@ export const btnName: Record<BtnNameKeys, string> = {
 };
 
 
-
-export {buttonsName, linksObj, text, icons}
+export { buttonsName, linksObj, text, icons }

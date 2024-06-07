@@ -1,11 +1,14 @@
-import {FC} from 'react';
-import "./Footer.scss";
-import logo from "../../assets/images/preview.svg";
-import { linksObj, text, icons } from "../../constants/constants";
-import FooterLinks from "./FooterLinks/FooterLinks";
-import FooterImages from "./FooterImages/FooterImages";
+import { FC } from 'react';
 
-const Footer: FC = () => {
+import { FooterLinks, FooterImages } from "../index";
+import { linksObj, text, icons } from "../../constants/constants";
+
+import "./Footer.scss";
+
+import logo from "../../assets/images/preview.svg";
+
+
+export const Footer: FC = () => {
     return (
         <footer className="footer">
             <div className="footer__data">
@@ -45,5 +48,3 @@ const Footer: FC = () => {
         </footer>
     );
 }
-
-export default Footer;

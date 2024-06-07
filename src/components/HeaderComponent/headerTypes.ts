@@ -3,8 +3,4 @@ type MealsCountParams = {
     inputId: string;
 }
 
-interface IHeaderTypes{
-    mealsCount: MealsCountParams
-}
-
-export type { MealsCountParams, IHeaderTypes }
+export type { MealsCountParams }
