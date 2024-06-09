@@ -1,16 +1,20 @@
-import {useState, useEffect, FC} from 'react';
-import "../HeaderComponent/Header.scss";
-import preview from "../../assets/images/preview.svg";
-import Basket from "./Basket/Basket";
-import HeaderButton from "./HeaderButton/HeaderButton";
-import { IHeaderTypes, MealsCountParams } from "./headerTypes"
+import { useState, useEffect, FC } from 'react';
+import { useSelector } from "react-redux";
+
+import { Basket, HeaderButton, MealsCountParams } from "../index";
 import { btnName, BtnNameKeys } from "../../constants/constants";
+import { IRootState } from "../../store/store";
+
+import "../HeaderComponent/Header.scss";
+
+import preview from "../../assets/images/preview.svg";
 
 
-const Header: FC<IHeaderTypes> = ({ mealsCount }) => {
+export const Header: FC = () => {
     const [data, setData] = useState<Array<any>>([]);
     const [resultCount, setResultCount] = useState(0)
     const [active, setActive] = useState('Home')
+    const mealsCount:MealsCountParams | {} = useSelector((state: IRootState) => state.addDataToBasket)
 
     useEffect(() => {
         if (Object.keys(mealsCount).length) {
@@ -26,16 +30,20 @@ const Header: FC<IHeaderTypes> = ({ mealsCount }) => {
         setResultCount(sum)
     }, [data])
 
-    const createMealsData = (newItem: MealsCountParams) => {
+    const createMealsData = (newItem: Partial<MealsCountParams>) => {
         setData((prevData) => {
-            const isNewItem = prevData.find(item => item.inputId === newItem.inputId);
-            if (!isNewItem) {
-                return [...prevData, newItem];
-            } else {
-                return prevData.map(item => (item.inputId === newItem.inputId ? newItem : item));
+            if (newItem.inputId !== undefined) {
+                const isNewItem = prevData.find(item => item.inputId === newItem.inputId);
+                if (!isNewItem) {
+                    return [...prevData, newItem];
+                } else {
+                    return prevData.map(item => item.inputId === newItem.inputId ? newItem : item);
+                }
             }
+            return prevData;
         });
     };
+
 
     const handleClick = (name: string) => {
         setActive(name)
@@ -69,5 +77,3 @@ const Header: FC<IHeaderTypes> = ({ mealsCount }) => {
         </header>
     );
 }
-
-export default Header;

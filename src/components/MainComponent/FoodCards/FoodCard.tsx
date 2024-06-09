@@ -1,12 +1,16 @@
-import React, {useState, useContext, FC, ChangeEvent} from 'react';
-import "./FoodCards.scss";
-import {Context} from "../../../Context/CreateContext";
+import { useState, FC, ChangeEvent } from 'react';
+import { useDispatch } from "react-redux";
+import { setBasketData } from "../../../redusers/cardDataSlice/cardDataSlice";
+
 import { IFoodCardsTypes } from "./foodCardsTypes"
 
-const FoodCard: FC<IFoodCardsTypes> = ({ id, url, description, name, price }) => {
+import "./FoodCards.scss";
+
+
+export const FoodCard: FC<IFoodCardsTypes> = ({ id, url, description, name, price }) => {
     const [inputValue, setInputValue] = useState("0");
     const [inputId, setInputId] = useState("");
-    const context = useContext(Context)
+    const dispatch = useDispatch()
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const inputValue = event.target.value;
@@ -23,7 +27,7 @@ const FoodCard: FC<IFoodCardsTypes> = ({ id, url, description, name, price }) =>
     };
 
     const handleClick = () => {
-        context!.onClick({inputValue, inputId});
+        dispatch(setBasketData({inputValue, inputId}));
     };
 
     return (
@@ -55,5 +59,3 @@ const FoodCard: FC<IFoodCardsTypes> = ({ id, url, description, name, price }) =>
         </div>
     );
 }
-
-export default FoodCard;

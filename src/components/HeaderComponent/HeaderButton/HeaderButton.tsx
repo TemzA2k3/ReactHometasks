@@ -1,9 +1,10 @@
-import {FC} from 'react';
-import { IHeaderButtonTypes } from "./headerButtonTypes"
-import React from 'react';
+import { FC } from 'react';
 import { Link } from "react-router-dom";
 
-const HeaderButton: FC<IHeaderButtonTypes> = ({ btnName, click, isActive, link }) => {
+import { IHeaderButtonTypes } from "../../index"
+
+
+export const HeaderButton: FC<IHeaderButtonTypes> = ({ btnName, click, isActive, link }) => {
     const active = isActive  ? "__active" : "";
 
     return (
@@ -14,5 +15,3 @@ const HeaderButton: FC<IHeaderButtonTypes> = ({ btnName, click, isActive, link }
         </button>
     );
 }
-
-export default HeaderButton;

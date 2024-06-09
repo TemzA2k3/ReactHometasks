@@ -1,8 +1,11 @@
-import React, {FC} from "react";
-import purchases from "../../../assets/images/purchases.svg";
-import {IBasketTypes} from "./basketTypes";
+import { FC } from "react";
 
-const Basket: FC<IBasketTypes> = ({ currentAmount }) => {
+import { IBasketTypes } from "../../index";
+
+import purchases from "../../../assets/images/purchases.svg";
+
+
+export const Basket: FC<IBasketTypes> = ({ currentAmount }) => {
     return (
         <div className="food_header__data__block__settings__img">
             <img src={purchases} alt="purchases" />
@@ -12,5 +15,3 @@ const Basket: FC<IBasketTypes> = ({ currentAmount }) => {
         </div>
     );
 }
-
-export default Basket;

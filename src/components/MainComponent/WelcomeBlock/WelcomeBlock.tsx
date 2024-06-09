@@ -1,17 +1,16 @@
-import React from 'react';
+import { Nutrition } from "../../index";
+
 import {
     WelcomeBoxWrapper, MainDescription, MainImage, MainImageWrapper,
-    MainTitle,
-    MainTitleDedicated, RatingImageDiv, RatingImageImage, StarBlock, Statistic, StatisticDedicated,
-    WelcomeBlockContent,
-    WelcomeBlockText,
-    WelcomeBox, FlexBlock
-} from "./WelcomeBlock.style";
+    MainTitle,MainTitleDedicated, RatingImageDiv, RatingImageImage,
+    StarBlock, Statistic, StatisticDedicated, WelcomeBlockContent,
+    WelcomeBlockText, WelcomeBox, FlexBlock } from "./WelcomeBlock.style";
+
 import rating from "../../../assets/images/rating.png"
 import mainImage from "../../../assets/images/mainImage.png"
-import Nutrition from "../Nutrition/Nutrition";
 
-const WelcomeBlock = () => {
+
+export const WelcomeBlock = () => {
     return (
         <WelcomeBoxWrapper>
             <WelcomeBox>
@@ -49,5 +48,3 @@ const WelcomeBlock = () => {
         </WelcomeBoxWrapper>
     );
 };
-
-export default WelcomeBlock;

@@ -1,6 +1,5 @@
 export const useFetch = () => {
     const request = async (url: string, method = 'GET', body = null, headers = {'Content-Type': 'application/json'}) => {
-
         try {
             const response = await fetch(url, {method, body, headers});
 
@@ -33,5 +32,5 @@ export const useFetch = () => {
             throw e;
         }
     };
-    return {request}
+    return { request }
 }

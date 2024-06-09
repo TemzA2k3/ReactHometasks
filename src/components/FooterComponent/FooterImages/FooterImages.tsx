@@ -1,7 +1,9 @@
-import {FC} from 'react';
-import {IFooterImagesTypes} from "./footerImagesTypes";
+import { FC } from 'react';
 
-const FooterImages:FC<IFooterImagesTypes> = ({ icon, width, height }) => {
+import { IFooterImagesTypes } from "../../index";
+
+
+export const FooterImages:FC<IFooterImagesTypes> = ({ icon, width, height }) => {
     const imageStyle = {
         width: width,
         height: height,
@@ -13,5 +15,3 @@ const FooterImages:FC<IFooterImagesTypes> = ({ icon, width, height }) => {
         </div>
     );
 }
-
-export default FooterImages;

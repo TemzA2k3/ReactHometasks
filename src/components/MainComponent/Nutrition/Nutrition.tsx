@@ -1,7 +1,9 @@
 import {FC} from 'react';
-import { INutritionTypes } from "./nutritionTypes";
 
-const Nutrition:FC<INutritionTypes> = ({ text, isActive, onClick }) => {
+import { INutritionTypes } from "../../index";
+
+
+export const Nutrition:FC<INutritionTypes> = ({ text, isActive, onClick }) => {
 
     const activeClass = isActive === text ? "__active" : "";
 
@@ -13,5 +15,3 @@ const Nutrition:FC<INutritionTypes> = ({ text, isActive, onClick }) => {
         </button>
     );
 }
-
-export default Nutrition;

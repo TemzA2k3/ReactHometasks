@@ -1,31 +1,29 @@
-import React, {useState, useEffect, FC} from 'react';
-import "./Description.scss";
-import { buttonsName } from "../../../constants/constants";
-import Nutrition from "../Nutrition/Nutrition";
-import FoodCard from "../FoodCards/FoodCard";
-import {useFetch} from "../../../hooks/http.hook";
-import {IContextTypes, IDescriptionTypes} from "../../index";
+import { useState, useEffect, FC } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 
-const Description: FC<IContextTypes> = () => {
-    const [meals, setMeals] = useState<Array<IDescriptionTypes>>([]);
+import { buttonsName } from "../../../constants/constants";
+import { IDescriptionTypes, Nutrition, FoodCard } from "../../index";
+import { fetchApiData } from "../../../actions/apiActions";
+import { IRootState, AppDispatch } from "../../../store/store";
+
+import "./Description.scss";
+
+
+export const Description: FC = () => {
+
     const [mealsForShow, setMealsForShow] = useState<Array<IDescriptionTypes>>([]);
     const [isShow, setIsShow] = useState<boolean>(true);
-    const [buttonName, setButtonName] = useState<string>("Dessert")
-    const [isLoading, setIsLoading] = useState<boolean>(false)
-    const {request} = useFetch()
+    const [buttonName, setButtonName] = useState<string>("Dessert");
+    const dispatch = useDispatch<AppDispatch>();
+    const { data: meals, loading, error } = useSelector((state: IRootState) => state.addApiData);
 
     useEffect(() => {
-        setIsLoading(true)
-        request("https://65de35f3dccfcd562f5691bb.mockapi.io/api/v1/meals").then(data => {
-            let filteredData = data.filter((item: IDescriptionTypes) => {
-                return item.category === buttonName
-            })
-            setIsShow(true)
-            setMeals(filteredData)
-            setMealsForShow(filteredData.slice(0, 6))
-            setIsLoading(false)
+        dispatch(fetchApiData(buttonName)).then((action) => {
+            if (fetchApiData.fulfilled.match(action)) {
+                setMealsForShow(action.payload.slice(0, 6));
+            }
         });
-    }, [buttonName]);
+    }, [buttonName, dispatch]);
 
     const handlePagination = () => {
         const isMoreThanSix: boolean = meals.length - mealsForShow.length >= 6;
@@ -45,9 +43,7 @@ const Description: FC<IContextTypes> = () => {
         }
     };
 
-
     const btnHideClass: string = isShow ? "" : "hidden";
-
     return (
         <main className="main">
             <div className="main__content">
@@ -66,13 +62,16 @@ const Description: FC<IContextTypes> = () => {
                 <div className="main__content__container">
                     <div className="main__content__container__buttons">
                         {buttonsName.map((item, index) => (
-                            <Nutrition onClick={() => setButtonName(item)}
+                            <Nutrition onClick={() => {
+                                            setButtonName(item)
+                                            setIsShow(true)
+                                       }}
                                        key={index}
                                        text={item}
                                        isActive={buttonName} />
                         ))}
                     </div>
-                    <div className={`main__content__container__items${isLoading ? "__loading" : ""}`}>
+                    <div className={`main__content__container__items${loading ? "__loading" : ""}`}>
                         {mealsForShow.map((item, index) => (
                             <FoodCard
                                 key={index}
@@ -93,5 +92,3 @@ const Description: FC<IContextTypes> = () => {
         </main>
     );
 };
-
-export default Description;
