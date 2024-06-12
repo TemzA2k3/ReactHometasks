@@ -6,6 +6,7 @@ import { IUserState } from "./userSliceTypes";
 const initialState: IUserState = {
     user: null,
     error: null,
+    isLogged: false
 };
 
 const userSlice = createSlice({
@@ -15,9 +16,11 @@ const userSlice = createSlice({
         setUser(state, action: PayloadAction<{ email: string; uid: string }>) {
             state.user = { email: action.payload.email, uid: action.payload.uid };
             state.error = null;
+            state.isLogged = true
         },
         clearUser(state) {
             state.user = null;
+             state.isLogged = false
         },
         setError(state, action: PayloadAction<string>) {
             state.error = action.payload;

@@ -1,7 +1,7 @@
 import { useState, useEffect, FC } from 'react';
 import { useSelector } from "react-redux";
 
-import { Basket, HeaderButton, MealsCountParams } from "../index";
+import { Basket, HeaderButton, MealsCountParams, Meal } from "../index";
 import { btnName, BtnNameKeys } from "../../constants/constants";
 import { IRootState } from "../../store/store";
 
@@ -11,44 +11,29 @@ import preview from "../../assets/images/preview.svg";
 
 
 export const Header: FC = () => {
-    const [data, setData] = useState<Array<any>>([]);
+    const [data, setData] = useState({});
     const [resultCount, setResultCount] = useState(0)
     const [active, setActive] = useState('Home')
-    const mealsCount:MealsCountParams | {} = useSelector((state: IRootState) => state.addDataToBasket)
+    const mealsCount: MealsCountParams | {} = useSelector((state: IRootState) => state.addDataToBasket)
 
     useEffect(() => {
         if (Object.keys(mealsCount).length) {
-            createMealsData(mealsCount);
+            setData(mealsCount)
         }
     }, [mealsCount]);
 
     useEffect(() => {
         let sum = 0
-        data.forEach(item => {
-            sum += Number(item.inputValue)
+        Object.values(data).forEach(item => {
+            const meal = item as Meal
+            sum += meal.inputValue
         });
         setResultCount(sum)
     }, [data])
 
-    const createMealsData = (newItem: Partial<MealsCountParams>) => {
-        setData((prevData) => {
-            if (newItem.inputId !== undefined) {
-                const isNewItem = prevData.find(item => item.inputId === newItem.inputId);
-                if (!isNewItem) {
-                    return [...prevData, newItem];
-                } else {
-                    return prevData.map(item => item.inputId === newItem.inputId ? newItem : item);
-                }
-            }
-            return prevData;
-        });
-    };
-
-
     const handleClick = (name: string) => {
         setActive(name)
     }
-
 
     return (
         <header className="food_header">

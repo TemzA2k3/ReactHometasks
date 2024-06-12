@@ -2,4 +2,12 @@ interface IBasketTypes{
     currentAmount: number | undefined
 }
 
-export type { IBasketTypes }
+interface IBasketData {
+    meal: string;
+    img: string;
+    price: number;
+    amount: string;
+    onDelete: () => void;
+}
+
+export type { IBasketTypes, IBasketData }

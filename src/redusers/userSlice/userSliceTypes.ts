@@ -4,4 +4,5 @@ export interface IUserState {
         uid: string;
     } | null;
     error: string | null;
+    isLogged: boolean;
 }
