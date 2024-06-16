@@ -5,6 +5,7 @@ import { Provider } from "react-redux";
 
 import { App } from './App';
 import { store } from "./store/store";
+import { ThemeProvider } from "./components/index"
 
 import './index.css';
 
@@ -14,7 +15,9 @@ root.render(
   <React.StrictMode>
               <BrowserRouter>
                   <Provider store={store}>
-                      <App />
+                      <ThemeProvider>
+                           <App />
+                      </ThemeProvider>
                   </Provider>
               </BrowserRouter>
           </React.StrictMode>

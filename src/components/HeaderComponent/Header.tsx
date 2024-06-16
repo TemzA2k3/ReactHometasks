@@ -1,7 +1,7 @@
 import { useState, useEffect, FC } from 'react';
 import { useSelector } from "react-redux";
 
-import { Basket, HeaderButton, MealsCountParams, Meal } from "../index";
+import { Basket, HeaderButton, HeaderThemeSwitcher, MealsCountParams, Meal } from "../index";
 import { btnName, BtnNameKeys } from "../../constants/constants";
 import { IRootState } from "../../store/store";
 
@@ -26,7 +26,7 @@ export const Header: FC = () => {
         let sum = 0
         Object.values(data).forEach(item => {
             const meal = item as Meal
-            sum += meal.inputValue
+            sum += Number(meal.inputValue)
         });
         setResultCount(sum)
     }, [data])
@@ -56,6 +56,7 @@ export const Header: FC = () => {
                             );
                         })}
                     </div>
+                    <HeaderThemeSwitcher />
                     <Basket currentAmount={resultCount} />
                 </div>
             </div>

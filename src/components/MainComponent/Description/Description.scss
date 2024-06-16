@@ -5,9 +5,10 @@
   align-items: center;
   flex-shrink: 0;
   position: relative;
-  background-image: url("../../../assets/images/background.svg");
+  background-image: var(--menu-background-color);
   background-size: cover;
   background-position: right top;
+  background: var(--menu-background-color);
   &__content{
     display: flex;
     padding: 140px 120px;
@@ -34,7 +35,7 @@
       }
       &__description{
         position: relative;
-        color: #546285;
+        color: var(--menu-description-color);
         text-align: center;
         font-family: sans-serif;
         font-size: 16px;

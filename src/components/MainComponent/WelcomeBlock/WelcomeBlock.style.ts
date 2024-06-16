@@ -1,14 +1,15 @@
-import {styled} from "styled-components";
-import mainImage from "../../../assets/images/mainPageBackground.png"
+import { styled } from "styled-components";
+// import mainImage from "../../../assets/images/mainPageBackground.png"
 
 export const WelcomeBoxWrapper = styled.main`
     display: flex;
     width: 100%;
     justify-content: center;
     align-items: center;
-    background-image: url(${mainImage});
+    background-image: var(--main-background-color);
     background-size: cover;
     background-position: right top;
+    background: var(--main-background-color);
 `
 
 export const WelcomeBox = styled.section`
@@ -33,7 +34,7 @@ export const FlexBlock = styled(WelcomeBlockText)`
 export const MainTitleDedicated = styled.span`
 `
 export const MainTitle = styled.h1`
-    color: #08090A;
+    color: var(--main-text-color);
     font-family: sans-serif;
     font-size: 60px;
     font-style: normal;
@@ -46,7 +47,7 @@ export const MainTitle = styled.h1`
 `
 
 export const MainDescription = styled.p`
-    color: #546285;
+    color: var(--main-descr-color);
     font-family: sans-serif;
     font-size: 18px;
     font-style: normal;
@@ -72,7 +73,7 @@ export const RatingImageImage = styled.img`
 
 export const StatisticDedicated = styled.span``
 export const Statistic = styled.p`
-    color: #08090A;
+    color: var(--main-descr-color);
     font-family: sans-serif;
     font-size: 16px;
     font-style: normal;

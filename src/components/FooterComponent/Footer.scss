@@ -1,7 +1,9 @@
 .footer{
-  background-image: url("../../assets/images/footer_background.png");
+  background: var(--main-background-color);
+  background-image: var(--footer-background-color);
   background-size: cover;
   background-position: right top;
+  background: var(--footer-background-color);
   &__data{
     padding: 100px 120px 60px 120px;
     display: flex;
@@ -25,7 +27,7 @@
           flex-shrink: 0;
         }
         &__text{
-          color: #546285;
+          color: var(--main-text-color);
           font-size: 16px;
           font-style: normal;
           font-weight: 400;
@@ -49,7 +51,7 @@
           gap: 28px;
           flex: 1 1 33%;
           &__name{
-            color: #08090A;
+            color: var(--main-text-color);
             font-size: 13px;
             font-style: normal;
             font-weight: 400;
@@ -58,7 +60,7 @@
             text-transform: uppercase;
           }
           &__item{
-            color: #546285;
+            color: var(--main-descr-color);
             font-size: 15px;
             font-style: normal;
             font-weight: 400;

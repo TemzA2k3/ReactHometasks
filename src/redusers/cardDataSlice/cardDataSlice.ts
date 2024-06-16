@@ -5,13 +5,13 @@ import { cloneDeep } from 'lodash';
 import { MealsCountParams } from "../../components";
 
 
-const initialState: MealsCountParams | {} = {}
+const initialState: MealsCountParams = {}
 
 const cardDataSlice = createSlice({
     name: "CardData",
     initialState,
     reducers: {
-        setBasketData(state, action: PayloadAction<MealsCountParams | {}>){
+        setBasketData(state, action: PayloadAction<MealsCountParams>){
             console.log(action.payload)
             return { ...state, ...cloneDeep(action.payload) };
         },

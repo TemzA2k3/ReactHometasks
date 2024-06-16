@@ -3,13 +3,15 @@ import { useDispatch } from "react-redux";
 import { setBasketData } from "../../../redusers/cardDataSlice/cardDataSlice";
 
 import { IFoodCardsTypes } from "./foodCardsTypes"
+import {MealsCountParams} from "../../HeaderComponent/headerTypes";
 
 import "./FoodCards.scss";
 
 
+
 export const FoodCard: FC<IFoodCardsTypes> = ({ id, url, description, name, price }) => {
-    const [inputValue, setInputValue] = useState<number>(0);
-    const [inputId, setInputId] = useState<number>();
+    const [inputValue, setInputValue] = useState<number | string>(0);
+    const [inputId, setInputId] = useState<number | string>();
     const dispatch = useDispatch()
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -27,11 +29,12 @@ export const FoodCard: FC<IFoodCardsTypes> = ({ id, url, description, name, pric
     };
 
     const handleClick = () => {
-        // dispatch(setBasketData({inputValue, inputId}));
-        const payload = {
-        [Number(inputId)]: { inputValue, inputId }
-    };
-    dispatch(setBasketData(payload));
+        if (inputId) {
+            const payload: MealsCountParams = {
+                [inputId]: { inputValue, inputId }
+            };
+            dispatch(setBasketData(payload));
+        }
     };
 
     return (

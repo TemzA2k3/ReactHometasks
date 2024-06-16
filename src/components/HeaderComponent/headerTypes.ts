@@ -1,13 +1,6 @@
-// type MealsCountParams = {
-//     inputValue: number;
-//     inputId: string;
-// }
-//
-// export type { MealsCountParams }
-
 type Meal = {
-    inputValue: number;
-    inputId: number;
+    inputValue: number | string;
+    inputId: number | string;
 }
 
 type MealsCountParams = {

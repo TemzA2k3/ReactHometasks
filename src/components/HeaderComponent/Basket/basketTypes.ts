@@ -6,7 +6,7 @@ interface IBasketData {
     meal: string;
     img: string;
     price: number;
-    amount: string;
+    amount: number | string;
     onDelete: () => void;
 }
 
