@@ -19,6 +19,7 @@ body{
   --order-background-color: url("./assets/images/background.svg");
   --order-item-background-color: #FFF;
   --order-item-name-color: #08090A;
+  --order-item-price-color: #35B8BE;
   --order-label-color: #08090A;
 
   --login-background-color: url("./assets/images/background.svg");
@@ -52,8 +53,9 @@ body.dark{
   --menu-item-price-color: #FFF;
 
   --order-background-color: #182847;
-  --order-item-background-color: #FFF;
-  --oder-item-name-color: #08090A;
+  --order-item-background-color: #778899;
+  --oder-item-name-color: #FFF;
+  --order-item-price-color: #FFF;
   --order-label-color: #FFF;
 
   --login-background-color: #182847;

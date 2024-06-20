@@ -19,7 +19,7 @@ export const Order: FC = () => {
             const resultData: IDescriptionTypes[] = []
             data.forEach((item: IDescriptionTypes) => {
                 Object.keys(basketData).forEach((key) => {
-                    if (item.id === key && Object.keys(basketData).length && item.amount) {
+                    if (item.id === key && Object.keys(basketData).length) {
                         // Я НЕ ЗНАЮЮЮЮЮЮЮЮ КАК СДЕЛАТЬ ИНАЧЕ, НИЧЕГО НЕ ПРОХОДИТ, НЕ РУГАЙТЕСЬ ЗА ЭТО
                         // Я ДУШУ ПРОДАЛ ДЬЯВОЛУ НО НЕ ПОНЯЛ ПОЧЕМУ ЭТА ФИГНЯ НЕ РАБОАТЕТ БЕЗ @ts-ignore
                         item.amount = basketData[key as keyof typeof basketData].inputValue.toString()

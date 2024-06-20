@@ -13,7 +13,7 @@
     justify-content: center;
     gap: 30px;
     &-name{
-      color: var(-oder-item-name-color);
+      color: var(--oder-item-name-color);
       font-family: sans-serif;
       font-size: 18px;
       font-style: normal;
@@ -38,7 +38,7 @@
     gap: 57px;
   }
   &__price{
-    color: #35B8BE;
+    color: var(--order-item-price-color);
     font-family: sans-serif;
     font-size: 15px;
     font-style: normal;
