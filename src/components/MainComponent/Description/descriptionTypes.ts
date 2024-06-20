@@ -6,6 +6,7 @@ interface IDescriptionTypes{
     instructions: string;
     img: string;
     price: number
+    amount?: string
 }
 
 export type { IDescriptionTypes }

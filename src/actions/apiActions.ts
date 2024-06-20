@@ -1,9 +1,10 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
+
 import { IDescriptionTypes } from "../components";
 
 export const fetchApiData = createAsyncThunk(
     'apiData/fetchApiData',
-    async (buttonName: string, { rejectWithValue }) => {
+    async ( buttonName: string, { rejectWithValue }) => {
         try {
             const response = await fetch("https://65de35f3dccfcd562f5691bb.mockapi.io/api/v1/meals");
             const data: IDescriptionTypes[] = await response.json();

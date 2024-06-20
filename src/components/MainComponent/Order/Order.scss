@@ -1,0 +1,87 @@
+.main{
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  position: relative;
+  background-image: url("../../../assets/images/background.svg");
+  background-size: cover;
+  background-position: right top;
+  &__content{
+    display: flex;
+    padding: 140px 120px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    width: 100%;
+  }
+  &__title{
+    color: #35B8BE;
+    text-align: center;
+    font-family: sans-serif;
+    font-size: 50px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 55px;
+    letter-spacing: 1.65px;
+  }
+  &__cards{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    width: 100%;
+  }
+  &__order{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+    width: 50%;
+    &--data{
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+    &--street, &--house{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 30px;
+    width: 100%;
+  }
+  &--text{
+    color: #08090A;
+    font-family: sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 20px;
+    letter-spacing: 0.6px;
+    width: 100px;
+  }
+  &--input{
+      border-radius: 6px;
+      border: 1px solid #DDD;
+      background: #FAFAFA;
+      width: 100%;
+      height: 45px;
+      color: #000;
+      text-align: start;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 27px;
+      letter-spacing: 0.36px;
+      font-family: sans-serif;
+      padding: 0 20px 0 20px;
+  }
+  }
+}

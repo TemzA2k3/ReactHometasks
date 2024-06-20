@@ -12,12 +12,20 @@ const cardDataSlice = createSlice({
     initialState,
     reducers: {
         setBasketData(state, action: PayloadAction<MealsCountParams | {}>){
-            state = cloneDeep(action.payload)
-            return state
+            console.log(action.payload)
+            return { ...state, ...cloneDeep(action.payload) };
+        },
+        deleteBasketItem(state, action: PayloadAction<string>) {
+            const updatedState = cloneDeep(state) as MealsCountParams;
+            delete updatedState[action.payload];
+            return updatedState;
+        },
+        clearBasket(state) {
+            return initialState;
         }
     }
 })
 
 
-export const { setBasketData } = cardDataSlice.actions
+export const { setBasketData, deleteBasketItem, clearBasket } = cardDataSlice.actions
 export default cardDataSlice.reducer

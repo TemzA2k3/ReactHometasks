@@ -8,14 +8,14 @@ import "./FoodCards.scss";
 
 
 export const FoodCard: FC<IFoodCardsTypes> = ({ id, url, description, name, price }) => {
-    const [inputValue, setInputValue] = useState("0");
-    const [inputId, setInputId] = useState("");
+    const [inputValue, setInputValue] = useState<number>(0);
+    const [inputId, setInputId] = useState<number>();
     const dispatch = useDispatch()
 
     const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         const inputValue = event.target.value;
-        setInputValue(inputValue);
-        setInputId(id);
+        setInputValue(Number(inputValue));
+        setInputId(Number(id));
     };
 
     const handleKeyPress = (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -27,7 +27,11 @@ export const FoodCard: FC<IFoodCardsTypes> = ({ id, url, description, name, pric
     };
 
     const handleClick = () => {
-        dispatch(setBasketData({inputValue, inputId}));
+        // dispatch(setBasketData({inputValue, inputId}));
+        const payload = {
+        [Number(inputId)]: { inputValue, inputId }
+    };
+    dispatch(setBasketData(payload));
     };
 
     return (
