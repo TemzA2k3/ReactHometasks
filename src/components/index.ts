@@ -18,6 +18,7 @@ export { WelcomeBlock } from "../components/MainComponent/WelcomeBlock/WelcomeBl
 export { Order } from "../components/MainComponent/Order/Order"
 export { OrderCard } from "../components/MainComponent/Order/OrderCard/OrderCard"
 export { PrivateRoute } from "../utils/router/PrivateRoute"
+export { HeaderThemeSwitcher } from "./HeaderComponent/HeaderThemeSwitcher/HeaderThemeSwitcher";
 
 // Types
 export type { IFooterLinksTypes } from "./FooterComponent/FooterLinks/footerLinksTypes"
@@ -30,5 +31,11 @@ export type { IDescriptionTypes } from "./MainComponent/Description/descriptionT
 export type { ApiState } from "../redusers/apiSlice/apiCallSliceTypes"
 export type { ILoginPageTypes } from "../components/MainComponent/LoginPage/loginPageTypes"
 export type { IUserState } from "../redusers/userSlice/userSliceTypes"
+export type { IThemeProviderProps, ThemeContextType } from "../utils/providers/providerTypes"
+
 // Hooks
 export { useFetch } from "../hooks/http.hook";
+export { useLocalStorage } from "../hooks/LocalStorageHook"
+
+//provider
+export { ThemeProvider, ThemeContext } from "../utils/providers/ThemeProvider"

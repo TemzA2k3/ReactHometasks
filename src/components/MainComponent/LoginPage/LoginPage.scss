@@ -9,10 +9,11 @@ section{
   align-items: center;
   justify-content: center;
   width: calc(100% - 504px);
-  background-image: url("../../../assets/images/background.svg");
+  background-image: var(--login-background-color);
   background-size: cover;
   background-position: right top;
   padding: 155px 252px 254px;
+  background: var(--login-background-color);
   &-content{
     display: flex;
     flex-direction: column;
@@ -35,7 +36,7 @@ section{
     flex-shrink: 0;
     border-radius: 6px;
     border: 1px solid rgba(53, 184, 190, 0.15);
-    background: #FFF;
+    background: var(--login-form-background-color);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -50,7 +51,7 @@ section{
       width: 100%;
     }
     &-text{
-      color: #08090A;
+      color: var(--login-form-label-color);
       font-family: sans-serif;
       font-size: 18px;
       font-style: normal;
@@ -86,14 +87,14 @@ section{
     gap: 30px;
   }
   &__register{
-    color: #222;
+    color: var(--login-form-auth-switch);
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: 20px;
     &--active{
       cursor: pointer;
-      color: #0078ff;
+      color: var(--login-form-auth-switch-active);
     }
   }
 }

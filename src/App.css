@@ -1,3 +1,74 @@
+body{
+  --header-background-color: #fff;
+  --header-text-color: #28224B;
+  --header-busket-text-color: #35B8BE;
+  --header-busket-amount-backgrouns-color: #FFF;
+
+  --main-background-color: url("./assets/images/mainPageBackground.png");
+  --main-text-color: #08090A;
+  --main-descr-color: #546285;
+  --main-label-color: #08090A;
+
+  --menu-background-color: url("./assets/images/background.svg");
+  --menu-description-color: #546285;
+  --menu-item-color: #FFF;
+  --menu-item-name-color: #08090A;
+  --menu-item-description-color: #546285;
+  --menu-item-price-color: #35B8BE;
+
+  --order-background-color: url("./assets/images/background.svg");
+  --order-item-background-color: #FFF;
+  --order-item-name-color: #08090A;
+  --order-item-price-color: #35B8BE;
+  --order-label-color: #08090A;
+
+  --login-background-color: url("./assets/images/background.svg");
+  --login-form-background-color: #FFF;
+  --login-form-label-color: #08090A;
+  --login-form-auth-switch: #222;
+  --login-form-auth-switch-active: #0078ff;
+
+  --footer-background-color: url("./assets/images/footer_background.png");
+  --footer-label-color: #546285;
+  --footer-name-color: #08090A;
+
+}
+
+body.dark{
+  --header-background-color: #2e4169;
+  --header-text-color: #28224B;
+  --header-busket-text-color: #FFF;
+  --header-busket-amount-backgrouns-color: #000000;
+
+  --main-background-color: #182847;
+  --main-text-color: #ffffff;
+  --main-descr-color: #cdd9f8;
+  --main-label-color: #08090A;
+
+  --menu-background-color: #182847;
+  --menu-description-color: #FFF;
+  --menu-item-color: #778899;
+  --menu-item-name-color: #FFF;
+  --menu-item-description-color: #cdd9f8;
+  --menu-item-price-color: #FFF;
+
+  --order-background-color: #182847;
+  --order-item-background-color: #778899;
+  --oder-item-name-color: #FFF;
+  --order-item-price-color: #FFF;
+  --order-label-color: #FFF;
+
+  --login-background-color: #182847;
+  --login-form-background-color: #2e4169;
+  --login-form-label-color: #FFF;
+  --login-form-auth-switch: #cdd9f8;
+  --login-form-auth-switch-active: #35B8BE;
+
+  --footer-background-color: #182847;
+  --footer-label-color: #546285;
+  --footer-name-color: #08090A;
+}
+
 button, h3, h2, h4, h1, p, a{
   all: unset;
 }

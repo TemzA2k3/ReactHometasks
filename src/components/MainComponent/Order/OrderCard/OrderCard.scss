@@ -6,14 +6,14 @@
   padding: 40px 26px;
   border-radius: 6px;
   border: 1px solid rgba(53, 184, 190, 0.15);
-  background: #FFF;
+  background: var(--order-item-background-color);
   &__meal{
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 30px;
     &-name{
-      color: #08090A;
+      color: var(--oder-item-name-color);
       font-family: sans-serif;
       font-size: 18px;
       font-style: normal;
@@ -38,7 +38,7 @@
     gap: 57px;
   }
   &__price{
-    color: #35B8BE;
+    color: var(--order-item-price-color);
     font-family: sans-serif;
     font-size: 15px;
     font-style: normal;

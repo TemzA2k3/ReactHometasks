@@ -19,11 +19,10 @@ export const Order: FC = () => {
             const resultData: IDescriptionTypes[] = []
             data.forEach((item: IDescriptionTypes) => {
                 Object.keys(basketData).forEach((key) => {
-                    if (item.id === key) {
-                        // @ts-ignore
+                    if (item.id === key && Object.keys(basketData).length) {
                         // Я НЕ ЗНАЮЮЮЮЮЮЮЮ КАК СДЕЛАТЬ ИНАЧЕ, НИЧЕГО НЕ ПРОХОДИТ, НЕ РУГАЙТЕСЬ ЗА ЭТО
                         // Я ДУШУ ПРОДАЛ ДЬЯВОЛУ НО НЕ ПОНЯЛ ПОЧЕМУ ЭТА ФИГНЯ НЕ РАБОАТЕТ БЕЗ @ts-ignore
-                        item.amount = basketData[key].inputValue
+                        item.amount = basketData[key as keyof typeof basketData].inputValue.toString()
                         resultData.push(item);
                     }
                 })
@@ -39,10 +38,10 @@ export const Order: FC = () => {
 
 
     return (
-        <main className="main">
-            <div className="main__content">
-                <h1 className="main__title">Finish your order</h1>
-                <div className="main__cards">
+        <main className="order-main">
+            <div className="order-main__content">
+                <h1 className="order-main__title">Finish your order</h1>
+                <div className="order-main__cards">
                     {Object.values(basketMeals).map((item) => (
                             <OrderCard key={item.id}
                                        meal={item.meal}
@@ -53,15 +52,15 @@ export const Order: FC = () => {
                             />
                         ))}
                 </div>
-                <div className="main__order">
-                    <div className="main__order--data">
-                        <div className="main__order--street">
-                            <h2 className="main__order--text">Street</h2>
-                            <input className="main__order--input" />
+                <div className="order-main__order">
+                    <div className="order-main__order--data">
+                        <div className="order-main__order--street">
+                            <h2 className="order-main__order--text">Street</h2>
+                            <input className="order-main__order--input" />
                         </div>
-                        <div className="main__order--house">
-                            <h2 className="main__order--text">House</h2>
-                            <input className="main__order--input" />
+                        <div className="order-main__order--house">
+                            <h2 className="order-main__order--text">House</h2>
+                            <input className="order-main__order--input" />
                         </div>
                     </div>
                     <Nutrition text="Order" isActive="Order"/>

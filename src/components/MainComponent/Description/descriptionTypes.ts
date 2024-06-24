@@ -5,8 +5,8 @@ interface IDescriptionTypes{
     area: string;
     instructions: string;
     img: string;
-    price: number
-    amount?: string
+    price: number;
+    amount?: number | string;
 }
 
 export type { IDescriptionTypes }
